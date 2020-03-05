@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["TitlePage"] - NewsWebApp</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+
+    <style>
+        .header {
+            height: 40px;
+            padding: 10px;
+            box-shadow: 2px 2px 2px #888888;
+        }
+
+        .menu {
+            list-style-type: none;
+        }
+
+        .menu button {
+            border-style: none;
+            background-color: white;
+            display: none;
+        }
+
+        .menu li {
+            float: left;
+        }
+
+        .menu li a {
+            display: block;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .menu li a:hover {
+            font-size: 1.1em;
+        }
+
+        .active_menu {
+            color: lightslategrey;
+            font-weight: bolder;
+        }
+
+        .active_menu:hover {
+            font-size: 1.2em;
+        }
+
+
+        .main_page {
+            margin-top: 10%;
+        }
+    </style>
+
+    <div class="header">
+
+        <ul class="menu">
+ 
+            <li>
+                @if (((string)ViewData["pressed"]).Equals("0"))
+                {
+                    <a id="index" class="active_menu" asp-controller="Home" asp-action="Index">Επικαιρότητα</a>
+                }
+                else
+                {
+                    <a id="index" asp-controller="Home" asp-action="Index">Επικαιρότητα</a>
+                }
+            </li>
+
+            <li>
+                @if (((string)ViewData["pressed"]).Equals("1"))
+                {
+                    <a id="business" class="active_menu" asp-controller="Home" asp-action="Index" asp-route-category="business"><i class="fas fa-comment-dollar"></i> Οικονομία</a>
+                }
+                else
+                {
+                    <a id="business" asp-controller="Home" asp-action="Index" asp-route-category="business"><i class="fas fa-comment-dollar"></i> Οικονομία</a>
+                }
+            </li>
+
+            <li>
+                @if (((string)ViewData["pressed"]).Equals("2"))
+                {
+                    <a id="science" class="active_menu" asp-controller="Home" asp-action="Index" asp-route-category="science"><i class="fas fa-atom"></i> Επιστήμη</a>
+                }
+                else
+                {
+                    <a id="science" asp-controller="Home" asp-action="Index" asp-route-category="science"><i class="fas fa-atom"></i> Επιστήμη</a>
+                }
+            </li>
+
+            <li>
+                @if (((string)ViewData["pressed"]).Equals("3"))
+                {
+                    <a id="sports" class="active_menu" asp-controller="Home" asp-action="Index" asp-route-category="sports"><i class="fas fa-basketball-ball"></i> Αθλητικά</a>
+                }
+                else
+                {
+                    <a id="sports" asp-controller="Home" asp-action="Index" asp-route-category="sports"><i class="fas fa-basketball-ball"></i> Αθλητικά</a>
+                }
+            </li>
+
+            <li>
+                @if (((string)ViewData["pressed"]).Equals("4"))
+                {
+                    <a id="technology" class="active_menu" asp-controller="Home" asp-action="Index" asp-route-category="technology"><i class="fa fa-flask"></i> Τεχνολογία</a>
+                }
+                else
+                {
+                    <a id="technology" asp-controller="Home" asp-action="Index" asp-route-category="technology"><i class="fa fa-flask"></i> Τεχνολογία</a>
+                }
+            </li>
+
+            <li>
+                @if (((string)ViewData["pressed"]).Equals("5"))
+                {
+                    <a id="entertainment" class="active_menu" asp-controller="Home" asp-action="Index" asp-route-category="entertainment"><i class="fas fa-guitar"></i> Διασκέδαση</a>
+                }
+                else
+                {
+                    <a id="entertainment" asp-controller="Home" asp-action="Index" asp-route-category="entertainment"><i class="fas fa-guitar"></i> Διασκέδαση</a>
+                }
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="container">
+        <main role="main" class="main_page">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="~/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿/* Design the menu bar */
+
+.menu {
+    list-style-type: none;
+}
+
+.menu button {
+    border-style: none;
+    background-color: white;
+    display: none;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu li a:hover {
+    font-size: 1.2em;
+}
